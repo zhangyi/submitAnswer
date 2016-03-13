@@ -14,25 +14,25 @@
                         <viewControllerLayoutGuide type="top" id="yOb-Cz-hGA"/>
                         <viewControllerLayoutGuide type="bottom" id="pO6-fh-PTR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOA-oA-oIr">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOA-oA-oIr">
                                 <rect key="frame" x="98" y="157" width="124" height="30"/>
                                 <state key="normal" title="开始新的一局游戏"/>
                                 <connections>
                                     <action selector="onRestartNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qG3-5T-ZhS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuS-1T-5j4">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuS-1T-5j4">
                                 <rect key="frame" x="130" y="300" width="60" height="30"/>
                                 <state key="normal" title="提交答案"/>
                                 <connections>
                                     <action selector="onSubmitAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1pm-GP-DRU"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eqe-7E-lyo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eqe-7E-lyo">
                                 <rect key="frame" x="87" y="214" width="147" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Ex9-gV-fZe">
@@ -55,7 +55,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="请输入小于100的数字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITM-E0-Lxg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="请输入小于100的数字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITM-E0-Lxg">
                                 <rect key="frame" x="16" y="41" width="181" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,18 +67,17 @@
                             <constraint firstAttribute="leadingMargin" secondItem="ITM-E0-Lxg" secondAttribute="leading" id="1xn-GY-XT6"/>
                             <constraint firstItem="Eqe-7E-lyo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2fY-rv-qgK"/>
                             <constraint firstItem="Eqe-7E-lyo" firstAttribute="centerX" secondItem="MOA-oA-oIr" secondAttribute="centerX" id="588-7c-pGs"/>
+                            <constraint firstItem="ITM-E0-Lxg" firstAttribute="top" secondItem="yOb-Cz-hGA" secondAttribute="bottom" constant="33" id="78r-G7-knN"/>
                             <constraint firstItem="CuS-1T-5j4" firstAttribute="top" secondItem="Eqe-7E-lyo" secondAttribute="bottom" constant="37" id="8lZ-ZZ-PiI"/>
                             <constraint firstItem="MOA-oA-oIr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OYX-jf-8hv"/>
                             <constraint firstItem="MOA-oA-oIr" firstAttribute="top" secondItem="ITM-E0-Lxg" secondAttribute="bottom" constant="74" id="SX2-rk-CxL"/>
                             <constraint firstItem="CuS-1T-5j4" firstAttribute="centerX" secondItem="Eqe-7E-lyo" secondAttribute="centerX" id="VAw-eh-jdX"/>
                             <constraint firstItem="CuS-1T-5j4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XOe-r7-uDN"/>
-                            <constraint firstItem="ITM-E0-Lxg" firstAttribute="top" secondItem="yOb-Cz-hGA" secondAttribute="bottom" constant="33" id="wtf-XC-5kA"/>
                             <constraint firstItem="Eqe-7E-lyo" firstAttribute="top" secondItem="MOA-oA-oIr" secondAttribute="bottom" constant="46" id="zel-dz-bnr"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="1xn-GY-XT6"/>
-                                <exclude reference="wtf-XC-5kA"/>
                                 <exclude reference="OYX-jf-8hv"/>
                                 <exclude reference="SX2-rk-CxL"/>
                                 <exclude reference="2fY-rv-qgK"/>
@@ -92,7 +91,6 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="1xn-GY-XT6"/>
-                                <include reference="wtf-XC-5kA"/>
                                 <include reference="OYX-jf-8hv"/>
                                 <include reference="SX2-rk-CxL"/>
                                 <include reference="2fY-rv-qgK"/>
@@ -103,6 +101,9 @@
                                 <include reference="XOe-r7-uDN"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <action selector="hideKeyboard:" destination="BYZ-38-t0r" eventType="touchDown" id="AYq-M9-Qph"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="txfNum" destination="Eqe-7E-lyo" id="xGt-l0-nOA"/>

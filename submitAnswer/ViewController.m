@@ -28,7 +28,9 @@
 	
 	[self initGame];
 	
-	self.txfNum.keyboardType = UIKeyboardTypeDecimalPad;
+//	self.txfNum.keyboardType = UIKeyboardTypeDecimalPad;
+	
+	self.txfNum.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,11 +55,78 @@
 
 //submit answer
 - (IBAction)onSubmitAnswer:(id)sender {
+	[self submitAnswerCommonHandler];
 	
+}
+
+- (void)submitAnswerCommonHandler {
 	self.nTimes += 1;
 	
 	
 	NSString *resultText = self.txfNum.text;
+	
+	//判断是否为纯数字
+	NSError *error = NULL;
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\d{1,}$"
+																		   options:NSRegularExpressionCaseInsensitive
+																			 error:&error];
+	
+	NSUInteger numberOfMatches = [regex numberOfMatchesInString:resultText
+														options:0
+														  range:NSMakeRange(0, [resultText length])];
+	
+	if (numberOfMatches < 1) {
+		
+		NSString *errMessage = nil;
+		
+		if ([resultText isEqualToString:@""]) {
+			errMessage = @"请输入数字后再进行提交";
+		} else {
+			errMessage = @"输入的格式不正确，请输入数字";
+		}
+		
+		UIAlertController * alert=   [UIAlertController
+									  alertControllerWithTitle:@"系统提示"
+									  message:errMessage
+									preferredStyle:UIAlertControllerStyleAlert];
+//									  preferredStyle:UIAlertControllerStyleActionSheet];
+		
+		
+		UIAlertAction* ok = [UIAlertAction
+							 actionWithTitle:@"确定"
+							 style:UIAlertActionStyleDefault
+							 handler:^(UIAlertAction * action)
+							 {
+								 //								 [alert dismissViewControllerAnimated:YES completion:nil];
+								 
+							 }];
+		UIAlertAction* cancel = [UIAlertAction
+								 actionWithTitle:@"关闭"
+								 style:UIAlertActionStyleDefault
+								 handler:^(UIAlertAction * action)
+								 {
+									 //									 [alert dismissViewControllerAnimated:YES completion:nil];
+									 
+								 }];
+		
+		[alert addAction:ok];
+		[alert addAction:cancel];
+		
+		
+		//		[alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+		//			textField.placeholder = @"Username";
+		//		}];
+		//		[alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+		//			textField.placeholder = @"Password";
+		//			textField.secureTextEntry = YES;
+		//		}];
+		
+		[self presentViewController:alert animated:YES completion:nil];
+		
+		
+		return ;
+	}
+	
 	
 	int nInputNum = [resultText intValue];
 	
@@ -78,9 +147,9 @@
 							 style:UIAlertActionStyleDefault
 							 handler:^(UIAlertAction *action) {
 								 /*
-								 [alert dismissViewControllerAnimated:YES completion:^{
+								  [alert dismissViewControllerAnimated:YES completion:^{
 									 NSLog(@"complete!");
-								 }];
+								  }];
 								  */
 								 NSLog(@"show!");
 							 }];
@@ -90,7 +159,26 @@
 	[self presentViewController:alert animated:YES completion:nil];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	
+	[self.txfNum resignFirstResponder];
+	
+	[self submitAnswerCommonHandler];
+	
+	return YES;
+}
 
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+	
+	return YES;
+}
 
+- (IBAction)hideKeyboard:(id)sender {
+	[self hideKeyboardCommonHandler];
+}
+
+- (void)hideKeyboardCommonHandler {
+	[[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+}
 
 @end
